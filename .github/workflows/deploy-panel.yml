@@ -1,0 +1,89 @@
+# .github/workflows/deploy-panel.yml
+# develop  -> TEST   |   tag v*  -> PROD   |   manuel -> au choix
+# Secrets à définir PAR ENVIRONNEMENT GitHub (test / production) :
+#   SSH_HOST, SSH_USER (shell user ISPConfig du site), SSH_KEY, SSH_KNOWN_HOSTS
+name: Deploy Panel
+
+on:
+  push:
+    branches: [develop]
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      target:
+        description: Environnement cible
+        type: choice
+        options: [test, prod]
+        default: test
+
+env:
+  TARGET: ${{ github.event_name == 'workflow_dispatch' && inputs.target || (startsWith(github.ref, 'refs/tags/') && 'prod' || 'test') }}
+
+concurrency:
+  group: panel-${{ github.event_name == 'workflow_dispatch' && inputs.target || (startsWith(github.ref, 'refs/tags/') && 'prod' || 'test') }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ (github.event_name == 'workflow_dispatch' && inputs.target == 'prod' || startsWith(github.ref, 'refs/tags/')) && 'production' || 'test' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      # Nom du projet lu dans angular.json (premier projet)
+      - name: Projet Angular
+        run: echo "PROJECT=$(node -p "Object.keys(require('./angular.json').projects)[0]")" >> "$GITHUB_ENV"
+
+      # Utilise la configuration "test" d'angular.json si elle existe, sinon "production"
+      - name: Build
+        run: |
+          CONF=production
+          if [ "$TARGET" = "test" ] && node -e "process.exit(require('./angular.json').projects[process.env.PROJECT].architect.build.configurations.test ? 0 : 1)"; then
+            CONF=test
+          fi
+          echo "Configuration : $CONF"
+          npx ng build --configuration "$CONF"
+
+      # Gère outputPath "dist" (-> dist/browser) comme "dist/<projet>" (-> dist/<projet>/browser)
+      - name: Dossier de sortie
+        run: |
+          OUT=""
+          for d in "dist/$PROJECT/browser" "dist/browser" "dist/$PROJECT" "dist"; do
+            if [ -f "$d/index.html" ]; then OUT="$d"; break; fi
+          done
+          [ -n "$OUT" ] || { echo "index.html introuvable dans dist/"; find dist -maxdepth 3 -type d; exit 1; }
+          if [ -d "dist/server" ] || [ -d "dist/$PROJECT/server" ]; then
+            echo "Build SSR détecté : ce workflow ne gère que le CSR"; exit 1
+          fi
+          echo "Sortie : $OUT"
+          echo "OUT=$OUT" >> "$GITHUB_ENV"
+
+      - name: Configurer SSH
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/id_ed25519
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/id_ed25519 ~/.ssh/known_hosts
+
+      - name: Upload vers web/
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+        run: |
+          rsync -az --delete --delay-updates \
+            --exclude 'config.json' \
+            --exclude '.htaccess' \
+            --exclude '.well-known/' \
+            --exclude 'stats/' \
+            --exclude 'error/' \
+            "$OUT/" "$SSH_USER@$SSH_HOST:web/"
