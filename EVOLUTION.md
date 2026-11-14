@@ -29,6 +29,16 @@ Prochaines étapes ouvertes :
 
 ## Historique des décisions
 
+### 2026-11-15 — Fiche église : interrupteur « Demandes en ligne »
+- **Décision** (demandé) : carte « Demandes en ligne » sur `church-detail` (sous le statut
+  de validation), interrupteur enregistré immédiatement via `PATCH /churches/:id/info`
+  (`ChurchService.updateAcceptsRequests`) — route ouverte au clergé actif de l'église comme
+  à l'admin. `Church.acceptsRequests` ajouté au modèle.
+- **Conséquences** : `ng build` propre. Non testé dans le navigateur. **Nécessite le
+  backend du même jour** (colonne + migration `ChurchAcceptsRequests`) — sans lui, la
+  route refuse le champ.
+
+
 > Format d'une entrée : `### AAAA-MM-JJ — Titre court` puis **Décision**, **Pourquoi**,
 > et si utile **Conséquences** (fichiers touchés, invariantes à tenir).
 

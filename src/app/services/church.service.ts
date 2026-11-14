@@ -124,6 +124,11 @@ export class ChurchService {
     return this.http.patch<Church>(`churches/${id}`, body);
   }
 
+  /** PATCH /churches/:id/info — ouvert au clergé actif de l'église (et à l'admin). */
+  updateAcceptsRequests(id: string, acceptsRequests: boolean): Observable<Church> {
+    return this.http.patch<Church>(`churches/${id}/info`, { acceptsRequests });
+  }
+
   updateStatus(id: string, status: ValidationStatus): Observable<{ success: boolean }> {
     return this.http.patch<{ success: boolean }>(`churches/${id}/status`, { status });
   }

@@ -65,6 +65,7 @@ export class ChurchDetailComponent extends FieldSaveMixin implements OnInit {
   error = signal<string | null>(null);
   deleting = signal(false);
   statusSaving = signal(false);
+  acceptsRequestsSaving = signal(false);
   // Carte GPS en pop-up : repère fixe sur la position de l'église parente,
   // pour se situer par rapport à elle plutôt que face à des lat/lng nus.
   locationMapOpen = signal(false);
@@ -437,6 +438,24 @@ export class ChurchDetailComponent extends FieldSaveMixin implements OnInit {
       error: (err) => {
         this.statusSaving.set(false);
         Swal.fire('Erreur', err?.error?.msg ?? 'Changement de statut impossible.', 'error');
+      },
+    });
+  }
+
+  /** Ouvre ou ferme la réception des demandes en ligne (enregistré tout de suite). */
+  setAcceptsRequests(acceptsRequests: boolean): void {
+    const church = this.church();
+    if (!church || this.acceptsRequestsSaving() || church.acceptsRequests === acceptsRequests) return;
+
+    this.acceptsRequestsSaving.set(true);
+    this.churchService.updateAcceptsRequests(church.id, acceptsRequests).subscribe({
+      next: () => {
+        this.church.update((c) => (c ? { ...c, acceptsRequests } : c));
+        this.acceptsRequestsSaving.set(false);
+      },
+      error: (err) => {
+        this.acceptsRequestsSaving.set(false);
+        Swal.fire('Erreur', err?.error?.msg ?? 'Enregistrement impossible.', 'error');
       },
     });
   }

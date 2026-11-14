@@ -90,6 +90,8 @@ export interface Church {
   accentColor?: string;
   defaultLanguage?: string;
   status: ValidationStatus;
+  /** L'église reçoit-elle des demandes en ligne ? Vrai par défaut. */
+  acceptsRequests: boolean;
   parentId?: string;
   countryId?: string;
   address: Address;

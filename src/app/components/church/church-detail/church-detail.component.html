@@ -150,6 +150,25 @@
           </div>
         </div>
 
+        <!-- Demandes en ligne -->
+        <div class="card mb-3">
+          <div class="card-header">Demandes en ligne</div>
+          <div class="card-body">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="acceptsRequests"
+                [checked]="c.acceptsRequests !== false" [disabled]="acceptsRequestsSaving()"
+                (change)="setAcceptsRequests($any($event.target).checked)">
+              <label class="form-check-label" for="acceptsRequests">
+                {{ c.acceptsRequests !== false ? 'Reçoit les demandes' : 'Ne reçoit pas de demandes' }}
+              </label>
+            </div>
+            <p class="small text-muted mb-0 mt-2">
+              Intentions de messe et demandes de sacrement déposées par les fidèles sur le portail.
+              Désactivé : l'église n'apparaît plus dans le formulaire de demande.
+            </p>
+          </div>
+        </div>
+
         <!-- Infos -->
         <div class="card">
           <div class="card-header">Informations</div>
