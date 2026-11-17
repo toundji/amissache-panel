@@ -29,6 +29,14 @@ Prochaines étapes ouvertes :
 
 ## Historique des décisions
 
+### 2026-11-17 — Nouveau projet Firebase `amissache-209bf` (compte amissache@gmail.com)
+- **Demandé** : projet Firebase recréé sous amissache@gmail.com. Créé par l'outil Firebase : une app Web
+  « AmissaChe Web » (partagée par l'app, le portail et le panel) et une app Android `com.amissache.app` (SHA-1 de
+  debug du poste ajoutée). `environments/firebase.ts` et `.firebaserc` pointent sur le nouveau projet (le panel avait sa propre app Web, il partage maintenant celle des sites). `ng build` passe.
+- **Reste à faire** (console) : activer Google dans Authentication, ajouter les domaines autorisés, générer la clé
+  du compte de service pour `FIREBASE_SDK` de l'API. **Tant que l'API garde l'ancienne clé, ne pas déployer** :
+  la connexion Google échouerait. Non déployé.
+
 ### 2026-11-17 — Renommage AmisaChe → AmissaChe
 - **Demandé** : « ça doit être amissache, même le nom du projet ; on a commis une erreur en payant le nom de
   domaine ». Textes et identifiants renommés dans les 5 projets (`AmissaChe` dans les textes, `amissache` dans
