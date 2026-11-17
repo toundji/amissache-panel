@@ -29,6 +29,17 @@ Prochaines étapes ouvertes :
 
 ## Historique des décisions
 
+### 2026-11-17 — Renommage AmisaChe → AmissaChe
+- **Demandé** : « ça doit être amissache, même le nom du projet ; on a commis une erreur en payant le nom de
+  domaine ». Textes et identifiants renommés dans les 5 projets (`AmissaChe` dans les textes, `amissache` dans
+  les identifiants), dépôts GitHub `toundji/amissache-*` (les anciens liens redirigent), dossiers `amissache-*`.
+- **Inchangés exprès** (sinon la production casse) : domaines `*.amisache.com` et adresses `@amisache.*`, projet
+  Firebase `amisache-9ad80` (et site d'hébergement), base `amisache_db`, nom pm2 et chemins du serveur
+  (`deploy.ps1`, `ecosystem.config.js`), utilisateur du serveur, clés de stockage du navigateur (sinon tout le monde
+  serait déconnecté).
+- **Conséquences** : les builds passent. Les textes déjà en base (FAQ, réglage `APP_NAME`) gardent l'ancien nom :
+  à corriger dans le panel. Rien n'est encore déployé.
+
 ### 2026-11-15 — Fiche église : interrupteur « Demandes en ligne »
 - **Décision** (demandé) : carte « Demandes en ligne » sur `church-detail` (sous le statut
   de validation), interrupteur enregistré immédiatement via `PATCH /churches/:id/info`
