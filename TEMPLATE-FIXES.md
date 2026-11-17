@@ -2,7 +2,7 @@
 
 **Sas des corrections à remonter au template `UNIFIED AUTH`.**
 
-Amisache **dérive** du socle. Quand on corrige un bug du socle en travaillant ici, la correction
+AmissaChe **dérive** du socle. Quand on corrige un bug du socle en travaillant ici, la correction
 est appliquée localement **et** notée ici, pour être **portée dans le repo template** — afin que
 les autres projets dérivés (ambassade, atcrypto…) en bénéficient. Ce fichier est un **pense-bête
 temporaire** : une entrée y vit tant qu'elle n'a pas été reportée upstream.
@@ -14,9 +14,9 @@ temporaire** : une entrée y vit tant qu'elle n'a pas été reportée upstream.
 Une correction va ici **si et seulement si** :
 
 1. **Elle touche le socle** — `shared/`, `database/`, `core/`, `utils/`, `mail/`, `auth/`, `users/`
-   (pas les modules Amisache `address/`, `church/`, `liturgy/`, `payment/`, `community/`,
+   (pas les modules AmissaChe `address/`, `church/`, `liturgy/`, `payment/`, `community/`,
    ni `content/`/`chat/`/`notifications/` adaptés).
-2. **Elle est générique** — aucune logique métier Amisache. Si le fix contient quoi que ce soit de
+2. **Elle est générique** — aucune logique métier AmissaChe. Si le fix contient quoi que ce soit de
    paroissial, il **reste local** et ne remonte pas.
 
 > Une fois la correction **reportée dans le template**, elle se consigne dans la mémoire **du
@@ -36,7 +36,7 @@ _(aucune pour l'instant)_
 - **Couche/fichier socle** : ex. `core/guards/jwt-auth.guard.ts`
 - **Symptôme** : ce qui cassait, observable.
 - **Cause** : la vraie raison.
-- **Correctif** : ce qui a été changé (générique, sans métier Amisache).
+- **Correctif** : ce qui a été changé (générique, sans métier AmissaChe).
 - **Test** : le test qui prouve le fix (à remonter avec, si possible).
 - **Date** : AAAA-MM-JJ
 -->

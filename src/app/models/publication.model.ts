@@ -1,4 +1,4 @@
-// Doit rester synchronisé avec amisache-backend :
+// Doit rester synchronisé avec amissache-backend :
 // src/community/community.enum.ts (PublicationStatus)
 // src/community/entities/publication.entity.ts
 // src/community/dto/publication.dto.ts

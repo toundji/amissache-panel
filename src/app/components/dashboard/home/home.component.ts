@@ -106,7 +106,7 @@ export class HomeComponent {
   // Chiffres métier (demandes, paiements, publications, églises) — plateforme
   // pour admin/engineer, église active pour le clergé. `null` = pas encore
   // chargé (ou aucune église active), distinct de 0.
-  amisacheStats = signal<DashboardStats | null>(null);
+  amissacheStats = signal<DashboardStats | null>(null);
 
   // Sections secondaires : `undefined` = en cours (skeleton), `null` = échec
   // (la section affiche son propre message, sans bloquer le reste du tableau de bord).
@@ -125,8 +125,8 @@ export class HomeComponent {
     ];
   });
 
-  readonly amisacheTiles = computed<StatTile[]>(() => {
-    const ds = this.amisacheStats();
+  readonly amissacheTiles = computed<StatTile[]>(() => {
+    const ds = this.amissacheStats();
     if (!ds) return [];
     const tiles: StatTile[] = [
       { label: 'Demandes reçues', icon: 'fas fa-inbox', color: 'warning', value: ds.pendingRequests, route: '/liturgy/requests', queryParams: requestsQuery(RequestStatus.SUBMITTED) },
@@ -166,7 +166,7 @@ export class HomeComponent {
   readonly requestTotal = computed(() => this.requests()?.length ?? 0);
 
   readonly todoItems = computed<TodoItem[]>(() => {
-    const ds = this.amisacheStats();
+    const ds = this.amissacheStats();
     const todo = this.todoCounts();
     const items: TodoItem[] = [];
     if (ds) {
@@ -249,11 +249,11 @@ export class HomeComponent {
       active: fullAccess ? this.dashboardService.countUsers(UserStatus.active) : of(0),
       unverified: fullAccess ? this.dashboardService.countUsers(UserStatus.unverified) : of(0),
       blocked: fullAccess ? this.dashboardService.countUsers(UserStatus.blocked) : of(0),
-      amisacheStats: fullAccess || churchId ? this.dashboardService.getStats(churchId) : of(null),
+      amissacheStats: fullAccess || churchId ? this.dashboardService.getStats(churchId) : of(null),
     }).subscribe({
-      next: ({ total, active, unverified, blocked, amisacheStats }) => {
+      next: ({ total, active, unverified, blocked, amissacheStats }) => {
         this.stats.set({ total, active, unverified, blocked });
-        this.amisacheStats.set(amisacheStats);
+        this.amissacheStats.set(amissacheStats);
         this.loading.set(false);
         this.refreshing.set(false);
         if (showLoader) Swal.close();

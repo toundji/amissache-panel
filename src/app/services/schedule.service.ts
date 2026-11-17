@@ -10,7 +10,7 @@ import {
 } from '../models/schedule.model';
 
 /**
- * Miroir de ScheduleController (amisache-backend src/liturgy/controllers/schedule.controller.ts).
+ * Miroir de ScheduleController (amissache-backend src/liturgy/controllers/schedule.controller.ts).
  * GET /schedules : `churchId` optionnel côté panel (voir ListScheduleQuery).
  * Liste non paginée serveur, relations non chargées → pagination + résolution
  * des libellés (église, type) côté CLIENT.

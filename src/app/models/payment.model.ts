@@ -1,4 +1,4 @@
-// Doit rester synchronisé avec amisache-backend :
+// Doit rester synchronisé avec amissache-backend :
 // src/payment/payment.enum.ts (PaymentOperator, PaymentStatus)
 // src/payment/entities/payment.entity.ts
 // src/payment/dto/payment.dto.ts

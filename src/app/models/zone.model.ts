@@ -1,4 +1,4 @@
-// Doit rester synchronisé avec amisache-backend :
+// Doit rester synchronisé avec amissache-backend :
 // src/address/entities/zone.entity.ts
 // src/address/dto/zone.dto.ts
 

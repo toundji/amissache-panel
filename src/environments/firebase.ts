@@ -1,6 +1,6 @@
 // Config Firebase du projet amisache-9ad80 — utilisée pour la connexion Google.
 // Le même projet Firebase est partagé avec l'app mobile ; le backend vérifie
-// l'idToken via le Firebase Admin SDK (FIREBASE_SDK dans amisache-backend/.env).
+// l'idToken via le Firebase Admin SDK (FIREBASE_SDK dans amissache-backend/.env).
 export const firebaseConfig = {
   apiKey: 'AIzaSyCQfq4nxo9gLVfUXaAQEvmk1_UDA5x2qL4',
   authDomain: 'amisache-9ad80.firebaseapp.com',

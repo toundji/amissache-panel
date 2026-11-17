@@ -5,7 +5,7 @@ import { Observable, tap } from 'rxjs';
 import { CreateVillageDto, ListVillageQuery, UpdateVillageDto, Village } from '../models/village.model';
 
 /**
- * Miroir de VillageController (amisache-backend src/address/controllers/village.controller.ts).
+ * Miroir de VillageController (amissache-backend src/address/controllers/village.controller.ts).
  * GET /villages : `zoneId` optionnel (absent → tous). Pagination + filtre zone côté CLIENT.
  */
 @Injectable({ providedIn: 'root' })

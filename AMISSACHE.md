@@ -1,12 +1,12 @@
-# AMISACHE.md
+# AMISSACHE.md
 
 Complément **projet** au socle **UNIFIED AUTH**. Ce fichier porte le contexte métier
-d'Amisache et les décisions d'architecture propres au projet — il **ne redit pas** le socle.
+d'AmissaChe et les décisions d'architecture propres au projet — il **ne redit pas** le socle.
 
 À lire **avec**, et non à la place de :
 - `CLAUDE.md` — conventions du template (couches, `Audit`, relations `***Id`/objet, tokens, guards, erreurs, upload…). **Priment toujours.**
 - `src/auth/auth.md` — mémoire du module `auth/` et de l'architecture générale.
-- `diagramme-classe-paroisses.mermaid` / `.svg` — **source de vérité du modèle de données** Amisache.
+- `diagramme-classe-paroisses.mermaid` / `.svg` — **source de vérité du modèle de données** AmissaChe.
 
 > Règle d'or : en cas de doute, `CLAUDE.md` gagne. Ce fichier ne fait qu'**ajouter** le métier
 > par-dessus le socle, jamais contredire ses règles non négociables.
@@ -20,7 +20,7 @@ qu'on reprend là où on s'est arrêté.
 
 **À l'ouverture — lire dans cet ordre** (du socle immuable à l'état chaud) :
 1. `CLAUDE.md` — architecture et règles du socle.
-2. `AMISACHE.md` — le présent fichier (contexte métier + décisions structurantes).
+2. `AMISSACHE.md` — le présent fichier (contexte métier + décisions structurantes).
 3. `EVOLUTION.md` — où on en est, dernières décisions, prochaines étapes.
 4. `TEMPLATE-FIXES.md` — corrections du socle en attente de remontée.
 5. `diagramme-classe-paroisses.mermaid` — modèle de données.
@@ -30,7 +30,7 @@ qu'on reprend là où on s'est arrêté.
 **À la clôture — consigner** :
 - Décisions et avancement → **entrée datée dans `EVOLUTION.md`**.
 - Toute correction du socle générique → **entrée dans `TEMPLATE-FIXES.md`** (§ critère).
-- `AMISACHE.md` mis à jour **uniquement** si une règle structurante change (pas pour le courant).
+- `AMISSACHE.md` mis à jour **uniquement** si une règle structurante change (pas pour le courant).
 - Si le `.mermaid` a bougé → **régénérer le `.svg`**
   (`npx mmdc -i diagramme-classe-paroisses.mermaid -o diagramme-classe-paroisses.svg -p puppeteer-config.json -b transparent`).
 
@@ -38,7 +38,7 @@ qu'on reprend là où on s'est arrêté.
 
 ## 1. Le projet en deux minutes
 
-Amisache (« mon église ») est un **SaaS multi-tenant** qui fédère les paroisses catholiques
+AmissaChe (« mon église ») est un **SaaS multi-tenant** qui fédère les paroisses catholiques
 du Bénin sous une même infrastructure, **conçu dès le départ pour s'étendre à d'autres pays**.
 
 - **Hiérarchie ecclésiale auto-référente** : Conférence épiscopale → Archidiocèse/Diocèse →
@@ -56,7 +56,7 @@ du Bénin sous une même infrastructure, **conçu dès le départ pour s'étendr
 
 ## 2. Ce qui s'ajoute au socle
 
-Les modules métier Amisache se branchent **en bout de chaîne**, après `users/`. Le sens de
+Les modules métier AmissaChe se branchent **en bout de chaîne**, après `users/`. Le sens de
 dépendance du socle est inchangé : le métier dépend du socle, **jamais l'inverse**.
 
 | Statut | Modules |
@@ -65,10 +65,10 @@ dépendance du socle est inchangé : le métier dépend du socle, **jamais l'inv
 | **Modules du socle gardés tels quels** | `auth/`, `mail/` |
 | **Module du socle étendu** | `users/` (voir §5) |
 | **Modules du socle gardés et adaptés** | `chat/` (voir §6.1), `content/` (§6.2), `notifications/` (§6.3) |
-| **Nouveaux modules Amisache** | `address/`, `church/`, `type/`, `liturgy/`, `payment/`, `community/` |
+| **Nouveaux modules AmissaChe** | `address/`, `church/`, `type/`, `liturgy/`, `payment/`, `community/` |
 
 **Aucune suppression.** `content/`, `chat/`, `notifications/` sont conservés (ce ne sont pas
-des démos jetables dans le cas d'Amisache — voir §6).
+des démos jetables dans le cas d'AmissaChe — voir §6).
 
 ---
 
@@ -96,18 +96,18 @@ Répartition des entités par module :
 
 ---
 
-## 4. Conventions du socle appliquées au métier Amisache
+## 4. Conventions du socle appliquées au métier AmissaChe
 
 Rien de nouveau ici : ce sont les règles de `CLAUDE.md`, juste rappelées là où elles touchent
-les entités Amisache.
+les entités AmissaChe.
 
 - **Toute entité étend `Audit`.** Donc **ne pas** redéclarer `id`, `createdAt`, `updatedAt`,
-  `deletedAt`, `createdBy`, `updatedBy` — ils viennent de `Audit`. Toutes les entités Amisache
+  `deletedAt`, `createdBy`, `updatedBy` — ils viennent de `Audit`. Toutes les entités AmissaChe
   héritent du soft-delete et de l'audit sans effort. (Le diagramme montre `id` par lisibilité ;
   à l'implémentation il disparaît des entités.)
 - **`static entityName` + `static entityCode` sur chaque entité**, `code` généré en
   `@BeforeInsert`. `User = "01"`. **Vérifier les codes déjà pris par le socle**
-  (`UserDevice`, `UserSession`, `MailFailedJob`) puis **réserver une plage `20`+ pour Amisache**
+  (`UserDevice`, `UserSession`, `MailFailedJob`) puis **réserver une plage `20`+ pour AmissaChe**
   afin d'éviter toute collision avec le template.
 - **Relations = scalaire `***Id` (lecture seule, même colonne physique) + objet `@ManyToOne`
   (`eager: false`).** C'est déjà la convention du diagramme (`xId` + `x`). Ne jamais assigner le
@@ -157,7 +157,7 @@ Conséquence TypeORM : **un embedded ne porte pas de relation `@ManyToOne`**. Do
   autre projet (`agent`, `investor`, `manager`) sont retirées. **Les rôles ecclésiaux ne passent
   PAS par `UserRole`** — ils vivent dans `ClergyMember.role` (`EcclesialRole`).
 - **`UserStatus` = celui du socle** (`active` / `unverified` / `disabled` / `blocked` /
-  `deleted`). Le `PENDING` de l'esquisse Amisache correspond à `unverified`.
+  `deleted`). Le `PENDING` de l'esquisse AmissaChe correspond à `unverified`.
 
 > ⚠️ **`users/` ne connaît pas `church/`.** `homeChurchId` reste une **colonne `uuid` scalaire** ;
 > **ne pas importer `ChurchModule` dans `UsersModule`** (ce serait inverser la dépendance socle→métier).
@@ -212,7 +212,7 @@ confirmation de paiement, réponse du clergé). Coût quasi nul tant qu'il n'est
 
 ---
 
-## 7. Règles dures spécifiques Amisache (à ne pas franchir)
+## 7. Règles dures spécifiques AmissaChe (à ne pas franchir)
 
 1. **Sens de dépendance** : rien ne dépend des modules métier ; eux dépendent du socle. Entre
    modules métier, tout descend (§3), aucun cycle, aucun `forwardRef()`.
@@ -255,7 +255,7 @@ Suit les dépendances, du plus fondamental au plus dérivé :
 
 Principe : **ne pas tout tester, tester ce qui fait mal si ça casse.** Le socle
 (`auth/`, sessions, tokens) est déjà éprouvé en production sur les autres projets dérivés du
-template — le re-tester serait du gaspillage. L'effort porte sur le **métier Amisache** et ses
+template — le re-tester serait du gaspillage. L'effort porte sur le **métier AmissaChe** et ses
 invariants : ceux qui corrompent les données ou la sécurité s'ils lâchent.
 
 **Invariants prioritaires** (déjà posés ailleurs dans ce fichier — les tests les gardent) :

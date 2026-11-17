@@ -17,7 +17,7 @@ module.exports = function (config) {
       suppressAll: true,
     },
     coverageReporter: {
-      dir: require("path").join(__dirname, "./coverage/amisache-panel"),
+      dir: require("path").join(__dirname, "./coverage/amissache-panel"),
       subdir: ".",
       reporters: [{ type: "html" }, { type: "text-summary" }],
     },

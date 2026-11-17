@@ -10,7 +10,7 @@ import {
 } from '../models/clergy-member.model';
 
 /**
- * Miroir de ClergyMemberController (amisache-backend src/church/controllers/clergy-member.controller.ts).
+ * Miroir de ClergyMemberController (amissache-backend src/church/controllers/clergy-member.controller.ts).
  * GET /clergy-members : `churchId` optionnel (absent → toutes). Liste non paginée
  * côté serveur → pagination + filtres côté CLIENT. Chaque affectation porte `user`
  * et `church` (relations chargées par le service).

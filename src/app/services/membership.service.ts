@@ -5,7 +5,7 @@ import { Observable, tap } from 'rxjs';
 import { Membership } from '../models/membership.model';
 
 /**
- * Miroir de MembershipController (amisache-backend src/church/controllers/membership.controller.ts).
+ * Miroir de MembershipController (amissache-backend src/church/controllers/membership.controller.ts).
  * Le panel n'utilise que GET /memberships/admin (abonnements fidèle⇄paroisse,
  * churchId optionnel) et DELETE /memberships/:id. La création/définition de
  * paroisse de référence est du self-service fidèle, hors back-office.

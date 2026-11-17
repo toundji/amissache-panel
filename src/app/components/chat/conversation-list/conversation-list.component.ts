@@ -148,9 +148,9 @@ export class ConversationListComponent {
     this.reloadTrigger.update((v) => v + 1);
   }
 
-  /** Destinataire d'une escalade de l'assistant : clergé d'une paroisse, ou équipe Amisache. */
+  /** Destinataire d'une escalade de l'assistant : clergé d'une paroisse, ou équipe AmissaChe. */
   escalationTarget(conversation: Conversation): string {
-    if (!conversation.escalatedChurchId) return 'Équipe Amisache';
+    if (!conversation.escalatedChurchId) return 'Équipe AmissaChe';
     return this.churchService.displayInfo(conversation.escalatedChurchId)?.name ?? '…';
   }
 

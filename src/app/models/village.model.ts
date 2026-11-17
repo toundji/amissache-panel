@@ -1,4 +1,4 @@
-// Doit rester synchronisé avec amisache-backend :
+// Doit rester synchronisé avec amissache-backend :
 // src/address/entities/village.entity.ts
 // src/address/address.enum.ts (VillageType)
 // src/address/dto/village.dto.ts

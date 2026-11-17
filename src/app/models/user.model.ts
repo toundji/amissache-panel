@@ -2,8 +2,8 @@
 // src/shared/common.enum.ts (UserRole, UserStatus)
 // src/users/entities/user.entity.ts (User)
 
-// Amisache : agent/investor (hérités du template) retirés, clergy ajouté —
-// voir amisache-backend AMISACHE.md §5. clergy est un marqueur plateforme
+// AmissaChe : agent/investor (hérités du template) retirés, clergy ajouté —
+// voir amissache-backend AMISSACHE.md §5. clergy est un marqueur plateforme
 // grossier ; le rôle ecclésial précis (curé, diacre...) et l'église
 // concernée vivent dans ClergyMember, pas ici (clergy-member.model.ts).
 export enum UserRole {

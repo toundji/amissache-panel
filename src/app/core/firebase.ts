@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment';
 /**
  * Initialisation unique du SDK Firebase (connexion Google).
  * Le backend vérifie l'idToken renvoyé ici via le Firebase Admin SDK
- * (POST /auth/google). Voir amisache-backend/src/auth/services/auth.service.ts.
+ * (POST /auth/google). Voir amissache-backend/src/auth/services/auth.service.ts.
  */
 export const firebaseApp: FirebaseApp = initializeApp(environment.firebase);
 export const firebaseAuth: Auth = getAuth(firebaseApp);

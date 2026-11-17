@@ -1,4 +1,4 @@
-// Doit rester synchronisé avec amisache-backend :
+// Doit rester synchronisé avec amissache-backend :
 // src/church/church.enum.ts (EcclesialRole)
 // src/church/entities/clergy-member.entity.ts
 // src/church/dto/clergy-member.dto.ts

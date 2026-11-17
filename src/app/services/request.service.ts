@@ -5,7 +5,7 @@ import { Observable, tap } from 'rxjs';
 import { ListRequestQuery, Request, RequestStatus } from '../models/request.model';
 
 /**
- * Miroir de RequestController (amisache-backend src/liturgy/controllers/request.controller.ts).
+ * Miroir de RequestController (amissache-backend src/liturgy/controllers/request.controller.ts).
  * Le panel utilise GET /requests/admin (toutes demandes, admin/engineer),
  * GET /requests/church/:churchId (clergé : son église seulement),
  * GET /requests/:id et PATCH /requests/:id/status. Le dépôt

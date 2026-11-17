@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { ChurchProfile, UpsertChurchProfileDto } from '../models/church-profile.model';
 
-/** Miroir de ChurchProfileController (amisache-backend src/church/controllers/church-profile.controller.ts). */
+/** Miroir de ChurchProfileController (amissache-backend src/church/controllers/church-profile.controller.ts). */
 @Injectable({ providedIn: 'root' })
 export class ChurchProfileService {
   private readonly http = inject(HttpClient);

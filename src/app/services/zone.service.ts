@@ -5,7 +5,7 @@ import { Observable, tap } from 'rxjs';
 import { CreateZoneDto, ListZoneQuery, UpdateZoneDto, Zone } from '../models/zone.model';
 
 /**
- * Miroir de ZoneController (amisache-backend src/address/controllers/zone.controller.ts).
+ * Miroir de ZoneController (amissache-backend src/address/controllers/zone.controller.ts).
  * GET /zones : `regionId` optionnel (absent → toutes). Pagination + filtre région côté CLIENT.
  */
 @Injectable({ providedIn: 'root' })

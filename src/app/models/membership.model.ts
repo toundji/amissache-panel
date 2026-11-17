@@ -1,4 +1,4 @@
-// Doit rester synchronisé avec amisache-backend :
+// Doit rester synchronisé avec amissache-backend :
 // src/church/entities/membership.entity.ts
 // src/church/controllers/membership.controller.ts
 

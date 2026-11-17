@@ -14,7 +14,7 @@ import {
 import { ClergyContextService } from './clergy-context.service';
 
 /**
- * Miroir de ChurchController (amisache-backend src/church/controllers/church.controller.ts).
+ * Miroir de ChurchController (amissache-backend src/church/controllers/church.controller.ts).
  * Le panel utilise GET /churches/admin (paginé serveur, tous statuts) + le CRUD /
  * workflow admin. La liste publique GET /churches (approuvées) sert l'annuaire, pas ici.
  */

@@ -16,7 +16,7 @@ const ACTIVE_CHURCH_STORAGE_KEY = 'clergyActiveChurchId';
  * dans ce cas `isFullAccess` prime, jamais l'inverse.
  *
  * `manager` n'entre PAS dans `isFullAccess` : ce rôle sert uniquement au
- * bypass technique du client API `manager` côté backend (AMISACHE.md §5),
+ * bypass technique du client API `manager` côté backend (AMISSACHE.md §5),
  * pas à une autorisation panel.
  */
 @Injectable({ providedIn: 'root' })

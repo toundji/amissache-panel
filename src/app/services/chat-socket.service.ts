@@ -37,7 +37,7 @@ export class ChatSocketService {
     this.socket.on('connect_error', (err) => console.error('[chat socket] connect_error', err));
     this.socket.on('error', (payload) => console.error('[chat socket] error', payload));
     this.socket.on('disconnect', (reason) => console.warn('[chat socket] disconnect', reason));
-    // Diagnostic temporaire — voir ChatSocketService (amisache-client) pour le détail.
+    // Diagnostic temporaire — voir ChatSocketService (amissache-client) pour le détail.
     this.socket.onAny((event, ...args) => console.debug('[chat socket] event', event, args));
   }
 

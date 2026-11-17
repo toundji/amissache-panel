@@ -1,4 +1,4 @@
-// Doit rester synchronisé avec amisache-backend :
+// Doit rester synchronisé avec amissache-backend :
 // src/church/church.enum.ts (EntityType, ValidationStatus)
 // src/church/entities/church.entity.ts + src/address/entities/address.embeddable.ts
 // src/church/dto/church.dto.ts

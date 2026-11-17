@@ -1,7 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
 /**
- * Tests end-to-end du panel Amisache.
+ * Tests end-to-end du panel AmissaChe.
  *
  * Le panel pointe sur `https://api.nutito.org` avec une clé API placeholder
  * dans `environment.ts` → pas d'accès réel à l'API depuis la config versionnée.

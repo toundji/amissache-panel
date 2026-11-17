@@ -1,4 +1,4 @@
-# Spec — Migration chatbot Amisache vers LLM (function calling)
+# Spec — Migration chatbot AmissaChe vers LLM (function calling)
 
 > Version 2 — adaptée au modèle `chat/` existant (Conversation / Participant / Message,
 > mode BOT/AGENT, socket `/chat`). Remplace la v1 qui proposait un endpoint et des entités
@@ -11,7 +11,7 @@ fallback générique si rien ne matche — y compris pour « Bonjour » ou « Av
 
 Objectif : remplacer ce moteur par un LLM (Mistral) avec function calling, qui décide quand
 chercher dans la FAQ, consulter les horaires d'une paroisse, demander une clarification, ou
-escalader vers la bonne personne (clergé ou équipe Amisache).
+escalader vers la bonne personne (clergé ou équipe AmissaChe).
 
 **Contrainte non négociable** : le LLM n'invente jamais de réponse théologique, pastorale ou
 pratique. Il répond uniquement à partir des résultats de tools, ou escalade. Seules exceptions :
@@ -86,7 +86,7 @@ FAQ globale à la plateforme (pas de lien paroisse). Réutilise le scoring mot-c
 renvoie **le meilleur résultat seulement** (ou rien).
 ```json
 { "name": "search_faq",
-  "description": "Cherche une réponse dans la FAQ Amisache (sacrements, pratique religieuse, fonctionnement de la plateforme).",
+  "description": "Cherche une réponse dans la FAQ AmissaChe (sacrements, pratique religieuse, fonctionnement de la plateforme).",
   "parameters": { "query": "string (required)" } }
 ```
 
@@ -127,7 +127,7 @@ acceptée pour l'instant (utilisateurs connectés uniquement).
 ### 6. `escalate_to_agent`
 ```json
 { "name": "escalate_to_agent",
-  "description": "Transmet la question à une personne. Question liturgique/pastorale liée à une paroisse → clergé de cette paroisse (churchSlug). Toute autre question → équipe Amisache (sans churchSlug). Ne jamais inventer une réponse religieuse.",
+  "description": "Transmet la question à une personne. Question liturgique/pastorale liée à une paroisse → clergé de cette paroisse (churchSlug). Toute autre question → équipe AmissaChe (sans churchSlug). Ne jamais inventer une réponse religieuse.",
   "parameters": { "reason": "string (required)", "churchSlug": "string (optional)" } }
 ```
 
@@ -137,12 +137,12 @@ acceptée pour l'instant (utilisateurs connectés uniquement).
 
 **Destinataire** : la personne compétente.
 - Question liturgique/pastorale liée à une paroisse → **clergé de cette paroisse**.
-- Sinon → **admins Amisache**.
+- Sinon → **admins AmissaChe**.
 
 **Persistance** — nouvelles colonnes sur `Conversation` :
 - `escalated_at` (datetime, nullable)
 - `escalation_reason` (text, nullable)
-- `escalated_church_id` (nullable — null = équipe Amisache)
+- `escalated_church_id` (nullable — null = équipe AmissaChe)
 
 L'escalade passe `status` à `PENDING`, **ne change pas le mode** (reste `BOT`), et notifie les
 destinataires (socket `conversation:updated` + `NotificationService`).
@@ -173,7 +173,7 @@ les admins voient tout.
 ## System prompt (base)
 
 ```
-Tu es l'assistant de la plateforme Amisache, qui regroupe plusieurs paroisses. Tu réponds
+Tu es l'assistant de la plateforme AmissaChe, qui regroupe plusieurs paroisses. Tu réponds
 en français uniquement.
 Date du jour : {date} ({timezone}). {Si page paroisse : L'utilisateur consulte la page de la
 paroisse "{churchName}" (slug: {churchSlug}) ; c'est la paroisse par défaut s'il n'en précise
@@ -199,7 +199,7 @@ Si l'utilisateur dit "mon église"/"ma paroisse" sans nom, appelle get_user_chur
 
 ## Frontend
 
-### Client (`amisache-client`, widget)
+### Client (`amissache-client`, widget)
 - Bulle toujours visible ; à l'ouverture, si non connecté → invitation à se connecter (Google)
   au lieu du chat.
 - Connecté : conversation via `POST /chat` (`subjectType: 'bot-widget'`, `subjectId: userId`,
@@ -209,7 +209,7 @@ Si l'utilisateur dit "mon église"/"ma paroisse" sans nom, appelle get_user_chur
   accordée.
 - Affiche l'indicateur de frappe du bot.
 
-### Panel (`amisache-panel`)
+### Panel (`amissache-panel`)
 - Badge « À traiter » + raison + paroisse sur la liste et le détail des conversations.
 - Filtrage des escalades par paroisse pour le clergé.
 - Réception de l'alerte « Mistral indisponible ».

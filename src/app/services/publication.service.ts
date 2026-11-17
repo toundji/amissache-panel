@@ -11,7 +11,7 @@ import {
 } from '../models/publication.model';
 
 /**
- * Miroir de PublicationController (amisache-backend src/community/controllers/publication.controller.ts).
+ * Miroir de PublicationController (amissache-backend src/community/controllers/publication.controller.ts).
  * ⚠️ GET /publications/:id est PUBLIC et ne renvoie que les publications
  * PUBLISHED. Le panel ne peut donc pas recharger un brouillon/archive par
  * id → la page de détail travaille à partir de la liste admin (tous

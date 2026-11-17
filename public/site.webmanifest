@@ -1,7 +1,7 @@
 {
-  "name": "Amisache — Administration",
-  "short_name": "Amisache",
-  "description": "Back-office de la plateforme des paroisses Amisache",
+  "name": "AmissaChe — Administration",
+  "short_name": "AmissaChe",
+  "description": "Back-office de la plateforme des paroisses AmissaChe",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",

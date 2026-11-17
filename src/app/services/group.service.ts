@@ -5,7 +5,7 @@ import { Observable, tap } from 'rxjs';
 import { CreateGroupDto, Group, ListGroupQuery, UpdateGroupDto } from '../models/group.model';
 
 /**
- * Miroir de GroupController (amisache-backend src/community/controllers/group.controller.ts).
+ * Miroir de GroupController (amissache-backend src/community/controllers/group.controller.ts).
  * GET /groups : `churchId` optionnel côté panel. Liste non paginée serveur,
  * relations non chargées → pagination + libellés côté CLIENT.
  */

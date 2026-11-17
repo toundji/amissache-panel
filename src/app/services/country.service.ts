@@ -5,7 +5,7 @@ import { Observable, tap } from 'rxjs';
 import { Country, CreateCountryDto, ListCountryQuery, UpdateCountryDto } from '../models/country.model';
 
 /**
- * Miroir de CountryController (amisache-backend src/address/controllers/country.controller.ts).
+ * Miroir de CountryController (amissache-backend src/address/controllers/country.controller.ts).
  * GET /countries n'est pas paginé côté serveur (nombre de pays borné) :
  * pagination CLIENT via PaginationService.setTotalOnly() + slice(), comme SettingService.
  */

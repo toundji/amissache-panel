@@ -1,6 +1,6 @@
-// Doit rester synchronisé avec amisache-backend :
+// Doit rester synchronisé avec amissache-backend :
 // src/shared/common.enum.ts (ConversationStatus, ConversationMode, ActorType, MessageKind, AttachmentKind)
-// src/chat/chat.enum.ts (ParticipantRole — propre au métier Amisache, pas shared/)
+// src/chat/chat.enum.ts (ParticipantRole — propre au métier AmissaChe, pas shared/)
 // src/chat/entities/*.entity.ts, src/chat/dto/*.dto.ts, src/chat/controllers/chat-guest.controller.ts
 
 export enum ConversationStatus {
@@ -24,8 +24,8 @@ export enum ActorType {
   SYSTEM = 'SYSTEM',
 }
 
-/** Rôles propres au métier Amisache (fidèle/clergé) — remplace le DRIVER/CLIENT/
- *  ASSIGNED_AGENT générique du template, cf. amisache-backend EVOLUTION.md 2026-09-20. */
+/** Rôles propres au métier AmissaChe (fidèle/clergé) — remplace le DRIVER/CLIENT/
+ *  ASSIGNED_AGENT générique du template, cf. amissache-backend EVOLUTION.md 2026-09-20. */
 export enum ParticipantRole {
   OWNER = 'OWNER',
   MEMBER = 'MEMBER',
@@ -76,7 +76,7 @@ export interface Conversation {
   /** Escalade par l'assistant — « à traiter » par un humain (mode reste BOT) */
   escalatedAt?: string | null;
   escalationReason?: string | null;
-  /** null = équipe Amisache */
+  /** null = équipe AmissaChe */
   escalatedChurchId?: string | null;
   createdAt?: string;
   updatedAt?: string;

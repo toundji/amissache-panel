@@ -4,7 +4,7 @@ import { Observable, tap } from 'rxjs';
 import { ApiErrorLog, ListApiErrorsQuery, PaginatedApiErrors } from '../models/api-error.model';
 
 /**
- * Miroir d'ApiErrorController (amisache-backend src/core/controllers/api-error.controller.ts).
+ * Miroir d'ApiErrorController (amissache-backend src/core/controllers/api-error.controller.ts).
  * GET /api-errors/admin est paginé côté serveur — même schéma que UserService.listUsers.
  */
 @Injectable({ providedIn: 'root' })

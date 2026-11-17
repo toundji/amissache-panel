@@ -5,7 +5,7 @@ import { Observable, tap } from 'rxjs';
 import { AddMediaDto, Media } from '../models/media.model';
 
 /**
- * Miroir de MediaController (amisache-backend src/community/controllers/media.controller.ts).
+ * Miroir de MediaController (amissache-backend src/community/controllers/media.controller.ts).
  * GET /media?publicationId (public), POST /media (rattacher une URL),
  * POST /media/upload (uploader un fichier — renvoie son URL, à rattacher
  * ensuite via `add` avec `provider: UPLOAD`), DELETE /media/:id.

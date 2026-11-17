@@ -1,4 +1,4 @@
-// Doit rester synchronisé avec amisache-backend :
+// Doit rester synchronisé avec amissache-backend :
 // src/type/type.enum.ts (TypeScope)
 // src/type/entities/type.entity.ts
 // src/type/dto/type.dto.ts

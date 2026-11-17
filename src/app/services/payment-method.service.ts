@@ -10,7 +10,7 @@ import {
 } from '../models/payment-method.model';
 
 /**
- * Miroir de PaymentMethodController (amisache-backend src/payment/controllers/payment-method.controller.ts).
+ * Miroir de PaymentMethodController (amissache-backend src/payment/controllers/payment-method.controller.ts).
  * GET /payment-methods : `churchId` optionnel côté panel, `activeOnly=false`
  * pour tout voir. Liste non paginée serveur, relations non chargées →
  * pagination + résolution des libellés côté CLIENT.

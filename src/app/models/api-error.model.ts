@@ -1,5 +1,5 @@
-// Doit rester synchronisé avec le backend Amisache :
-// amisache-backend/src/core/entities/api-error.entity.ts
+// Doit rester synchronisé avec le backend AmissaChe :
+// amissache-backend/src/core/entities/api-error.entity.ts
 
 export interface ApiErrorLog {
   id: string;

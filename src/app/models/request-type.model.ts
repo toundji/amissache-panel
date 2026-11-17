@@ -1,4 +1,4 @@
-// Doit rester synchronisé avec amisache-backend :
+// Doit rester synchronisé avec amissache-backend :
 // src/liturgy/request-type.enum.ts (RequestTypeScope)
 // src/liturgy/entities/request-type.entity.ts
 // src/liturgy/dto/request-type.dto.ts

@@ -1,4 +1,4 @@
-# Charte graphique — Amisache
+# Charte graphique — AmissaChe
 
 > Plateforme numérique des églises catholiques du Bénin (pensée pour s'étendre à d'autres pays).
 > Ce document décrit l'identité visuelle. Il sert de brief à une IA générative (GPT / génération d'image) pour produire le **logo**.
@@ -7,7 +7,7 @@
 
 ## 1. Nom
 
-**Amisache** — signifie « mon église ».
+**AmissaChe** — signifie « mon église ».
 
 Le nom porte déjà l'ADN du projet : l'**appartenance personnelle**. « *Mon* » église, pas « une » église — chaque fidèle, chaque paroisse doit s'y sentir chez soi. Le logo peut incarner cette double idée : l'intime (« mon ») et le vaste (les cieux qui rassemblent).
 
@@ -99,6 +99,6 @@ Registre marial assumé via le bleu (couleur traditionnelle de la Vierge), perti
 
 ## 8. Prompt prêt à coller dans GPT
 
-> Crée un logo pour **Amisache** (un nom qui signifie « mon église »), une plateforme numérique catholique qui rassemble les églises du Bénin (et, à terme, d'autres pays). Le logo doit évoquer **les cieux, le sacré et la majesté** : un ciel lumineux, une nuée, une lumière divine dorée. Style **épuré, moderne et intemporel, à plat (flat design)**, formes géométriques simples et nobles. **Emblème + nom du logo**, l'emblème devant rester lisible seul et en tout petit. Idée de symbole : une **étoile / aube rayonnante au-dessus d'une voûte céleste** (ou une croix lumineuse dans un cercle de ciel). Palette : **bleu firmament (#16235C)** et **or (#D4AF37)** sur **fond blanc**. Prévois une version **monochrome**. Le nom en **serif élégante et noble** (type gravé). **À éviter** : dégradés criards, effets 3D, couleurs de drapeau national, bâtiment d'église trop littéral, clichés religieux. Fond transparent, format vectoriel, doit fonctionner en icône d'application ronde.
+> Crée un logo pour **AmissaChe** (un nom qui signifie « mon église »), une plateforme numérique catholique qui rassemble les églises du Bénin (et, à terme, d'autres pays). Le logo doit évoquer **les cieux, le sacré et la majesté** : un ciel lumineux, une nuée, une lumière divine dorée. Style **épuré, moderne et intemporel, à plat (flat design)**, formes géométriques simples et nobles. **Emblème + nom du logo**, l'emblème devant rester lisible seul et en tout petit. Idée de symbole : une **étoile / aube rayonnante au-dessus d'une voûte céleste** (ou une croix lumineuse dans un cercle de ciel). Palette : **bleu firmament (#16235C)** et **or (#D4AF37)** sur **fond blanc**. Prévois une version **monochrome**. Le nom en **serif élégante et noble** (type gravé). **À éviter** : dégradés criards, effets 3D, couleurs de drapeau national, bâtiment d'église trop littéral, clichés religieux. Fond transparent, format vectoriel, doit fonctionner en icône d'application ronde.
 
 *(Astuce : pour la génération d'image, une traduction en anglais donne souvent un rendu plus fidèle. Le sens du brief reste le même.)*

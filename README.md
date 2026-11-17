@@ -16,7 +16,7 @@ fork partagé.
 ### 1. Cloner et renommer
 
 ```bash
-git clone https://github.com/toundji/amisache-panel.git nameProject
+git clone https://github.com/toundji/amissache-panel.git nameProject
 cd nameProject
 rm -rf .git
 git init
@@ -25,7 +25,7 @@ git init
 Sous PowerShell (Windows) :
 
 ```powershell
-git clone https://github.com/toundji/amisache-panel.git nameProject
+git clone https://github.com/toundji/amissache-panel.git nameProject
 cd nameProject
 Remove-Item -Recurse -Force .git
 git init
@@ -33,7 +33,7 @@ git init
 
 Renommer ensuite le template pour qu'il porte le nom du projet réel :
 
-- `package.json` : champ `"name"` (`amisache-panel` → `mon-projet`)
+- `package.json` : champ `"name"` (`amissache-panel` → `mon-projet`)
 - `src/index.html` : `<title>` (`AngularPanel` est un placeholder)
 - `README.md` / `CLAUDE.md` : remplacer les mentions « Angular Panel » par le nom réel
   du projet

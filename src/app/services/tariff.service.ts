@@ -5,7 +5,7 @@ import { Observable, tap } from 'rxjs';
 import { CreateTariffDto, ListTariffQuery, Tariff, UpdateTariffDto } from '../models/tariff.model';
 
 /**
- * Miroir de TariffController (amisache-backend src/liturgy/controllers/tariff.controller.ts).
+ * Miroir de TariffController (amissache-backend src/liturgy/controllers/tariff.controller.ts).
  * GET /tariffs/admin (tous les tarifs, admin/engineer) et GET
  * /tariffs/church/:churchId (une église, clergé de cette église ou admin) —
  * même convention que ClergyMember/Entrance/Schedule/etc. Liste non paginée

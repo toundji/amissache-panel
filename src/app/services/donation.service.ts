@@ -5,7 +5,7 @@ import { Observable, tap } from 'rxjs';
 import { Donation, ListDonationQuery } from '../models/donation.model';
 
 /**
- * Miroir de DonationController (amisache-backend src/liturgy/controllers/donation.controller.ts).
+ * Miroir de DonationController (amissache-backend src/liturgy/controllers/donation.controller.ts).
  * Le panel n'utilise que GET /donations/admin (tous les dons, filtrable par
  * église) et GET /donations/:id — un don est déposé par le fidèle, jamais
  * modifié. Liste non paginée serveur, relations non chargées → pagination +

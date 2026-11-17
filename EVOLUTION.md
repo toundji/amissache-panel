@@ -1,8 +1,8 @@
 # EVOLUTION.md
 
-**Journal vivant d'Amisache** — décisions d'architecture, avancement, prochaines étapes.
+**Journal vivant d'AmissaChe** — décisions d'architecture, avancement, prochaines étapes.
 Sa forme s'inspire de `src/auth/auth.md` (État actuel / Historique / Points d'attention),
-mais son périmètre est **le projet Amisache**, pas un module.
+mais son périmètre est **le projet AmissaChe**, pas un module.
 
 > **Discipline (non négociable)** : ce fichier se **lit en début de session** et se
 > **complète en fin de session**. Un journal négligé ment. Toute décision structurante,
@@ -17,13 +17,13 @@ le socle `UNIFIED AUTH` est en place et sert de base.
 
 Acquis :
 - **Modèle de données finalisé** → `diagramme-classe-paroisses.mermaid` / `.svg` (source de vérité).
-- **Découpage en modules arrêté** → voir `AMISACHE.md` §2–§3 (6 modules Amisache + modules du
+- **Découpage en modules arrêté** → voir `AMISSACHE.md` §2–§3 (6 modules AmissaChe + modules du
   socle gardés/adaptés).
-- **Réconciliation avec le template cadrée** → `AMISACHE.md` §4–§7.
+- **Réconciliation avec le template cadrée** → `AMISSACHE.md` §4–§7.
 
 Prochaines étapes ouvertes :
-- Modèle de `content/` à obtenir → fermer la frontière `content/`⇄`community/` (`AMISACHE.md` §6.2).
-- Génération de l'arborescence NestJS via Claude Code, dans l'ordre `AMISACHE.md` §9.
+- Modèle de `content/` à obtenir → fermer la frontière `content/`⇄`community/` (`AMISSACHE.md` §6.2).
+- Génération de l'arborescence NestJS via Claude Code, dans l'ordre `AMISSACHE.md` §9.
 
 ---
 
@@ -206,7 +206,7 @@ Prochaines étapes ouvertes :
 - **Décision** (`chatbot-llm-spec.md` v2, backend `EVOLUTION.md` même date) : une
   conversation escaladée par l'assistant affiche un badge « À traiter » (tant que le mode
   est BOT) + la raison + le destinataire (clergé de la paroisse, résolu via le nouveau
-  `ChurchService.resolveDisplayInfo`/`displayInfo`, ou « Équipe Amisache ») dans la liste
+  `ChurchService.resolveDisplayInfo`/`displayInfo`, ou « Équipe AmissaChe ») dans la liste
   et dans une carte « Question transmise » du détail. Sujet `bot-widget` libellé
   « Assistant ».
 - Un clergé ne voit que les escalades de ses paroisses : le backend l'ajoute comme
@@ -222,7 +222,7 @@ Prochaines étapes ouvertes :
 
 ### 2026-09-21 — Chat : temps réel via Socket.io (`ChatSocketService`)
 - **Décision** : demandé explicitement (« ajouter le websocket pour que ce soit
-  instantané »), en même temps que côté backend et `amisache-client` (voir
+  instantané »), en même temps que côté backend et `amissache-client` (voir
   `EVOLUTION.md` backend, même date, pour le détail du `ChatGateway`). Nouveau
   `socket.io-client` + `services/chat-socket.service.ts` — connexion JWT au
   namespace `/chat` (le panel n'a jamais de flux invité, contrairement au
@@ -292,7 +292,7 @@ Prochaines étapes ouvertes :
   connecté est **participant actif**. Les conversations ouvertes par la bulle publique
   du portail (visiteur anonyme) n'ont jamais d'admin/clergé comme participant tant
   qu'aucun handoff n'a eu lieu — la liste était donc systématiquement vide pour ce cas
-  d'usage, sans erreur visible. Voir `amisache-backend` EVOLUTION.md, même date, pour
+  d'usage, sans erreur visible. Voir `amissache-backend` EVOLUTION.md, même date, pour
   le nouvel endpoint `GET /chat/conversations/admin` qui corrige ça côté serveur.
 - **Décision** : `ChatService.listAdmin()` (nouveau, miroir de `myConversations`, même
   méthode privée `fetchConversations` factorisée pour les deux) appelle ce nouvel
@@ -304,16 +304,16 @@ Prochaines étapes ouvertes :
   n'appartiennent à aucune église).
 - **Pourquoi** : correction directe d'un défaut réel signalé par l'utilisateur.
 - **Conséquences** : `ng build` propre. Vérifié en HTTP live côté backend (voir
-  `amisache-backend` EVOLUTION.md) — la nouvelle route renvoie bien les conversations
+  `amissache-backend` EVOLUTION.md) — la nouvelle route renvoie bien les conversations
   attendues ; pas de session panel ouverte cette entrée pour vérifier le rendu UI
   lui-même (même schéma de liste déjà éprouvé ailleurs dans le panel).
 
-### 2026-09-20 — `models/chat.model.ts` réaligné sur l'adaptation Amisache de `ParticipantRole`/`ActorType`
+### 2026-09-20 — `models/chat.model.ts` réaligné sur l'adaptation AmissaChe de `ParticipantRole`/`ActorType`
 - **Contexte** : en construisant la bulle de chat publique côté portail
-  (`amisache-client`), `ParticipantRole` a été adapté côté backend
+  (`amissache-client`), `ParticipantRole` a été adapté côté backend
   (`DRIVER`/`CLIENT`/`ASSIGNED_AGENT` → `FAITHFUL`/`CLERGY`, `OWNER`/`MEMBER` gardés,
   déplacé dans `chat/chat.enum.ts`) et `ActorType` étendu (`+GUEST`, visiteur anonyme —
-  voir `amisache-backend` EVOLUTION.md, même date). L'utilisateur a demandé
+  voir `amissache-backend` EVOLUTION.md, même date). L'utilisateur a demandé
   explicitement si le panel avait aussi été touché — vérification faite : le panel a
   **sa propre UI de gestion du chat**, déjà construite (`components/chat/
   conversation-{list,detail,create}/`), avec sa propre copie de ces enums
@@ -340,7 +340,7 @@ Prochaines étapes ouvertes :
 
 ### 2026-09-19 — Accès clergé au panel : menus, listes et formulaires scopés à sa propre église
 - **Décision de fond** (demandée explicitement, suite à un incident « connexion clergé
-  refusée puis erreurs 403 partout ») : `amisache-panel` sert admin/engineer (accès complet)
+  refusée puis erreurs 403 partout ») : `amissache-panel` sert admin/engineer (accès complet)
   **et** clergé (scopé à sa/ses église(s)) dans le **même** panel — pas d'app séparée. Voir
   `EVOLUTION.md` backend, entrée du même jour, pour les permissions serveur correspondantes.
 - **`ClergyContextService`** (nouveau, `services/clergy-context.service.ts`) : source de
@@ -491,17 +491,17 @@ Prochaines étapes ouvertes :
   fonctionnent de bout en bout. `ng build` propre.
 
 ### 2026-09-03 — Stratégie de tests arrêtée + amorce Claude Code
-- **Décision (tests)** : stratégie consignée en **section §10 d'`AMISACHE.md`**, pas de
+- **Décision (tests)** : stratégie consignée en **section §10 d'`AMISSACHE.md`**, pas de
   `TESTING.md` séparé — elle est soudée aux invariants du même fichier et n'a aucun cycle de vie
   propre (on extraira un `TESTING.md` seulement si la section déborde). Cibles : isolation
   multi-tenant, `Payment.confirmedBy → ClergyMember`, `homeChurchId ∈ Membership`, cohérence
   hiérarchie `Church`, `perimeter`. Niveaux : unitaire services / intégration DB pour le spatial /
   E2E Playwright sur les parcours critiques.
 - **Décision (amorce)** : le `CLAUDE.md` **du fork** charge le contexte projet via `@import`
-  (`@AMISACHE.md`, `@EVOLUTION.md`) au lieu d'un renvoi en prose → la chaîne de session n'est plus
+  (`@AMISSACHE.md`, `@EVOLUTION.md`) au lieu d'un renvoi en prose → la chaîne de session n'est plus
   orpheline. Bloc **local au fork**, ne remonte jamais au template (donc pas dans
   `TEMPLATE-FIXES.md`). `auth.md` reste conditionnel → volontairement **non** importé.
-- **Nettoyage** : deux reliquats `favoriteChurchId` → `homeChurchId` corrigés dans `AMISACHE.md`
+- **Nettoyage** : deux reliquats `favoriteChurchId` → `homeChurchId` corrigés dans `AMISSACHE.md`
   (§5 encadré, §9 étape 3), alignés sur le renommage du 2026-08-30.
 
 ### 2026-08-30 — Rattachement paroissial du fidèle : `homeChurch` + `Membership`
@@ -512,7 +512,7 @@ Prochaines étapes ouvertes :
   `Membership` est le symétrique de `ClergyMember` (fidèle vs clergé).
 - **Conséquences** : invariante `homeChurchId ∈ Membership(user)` validée côté service `church/`.
   « Paroisse la plus proche » = onboarding spatial (`ST_Distance`), pas le modèle. Diagramme +
-  `AMISACHE.md` §3/§5/§7 mis à jour.
+  `AMISSACHE.md` §3/§5/§7 mis à jour.
 
 ### 2026-08-30 — Emprise et accès de l'église : `perimeter` + `Entrance`
 - **Décision** : `Church.perimeter: Polygon` (attribut, pas une table). `Entrance` = **classe à
@@ -528,11 +528,11 @@ Prochaines étapes ouvertes :
   hors de là → `ClergyMember.role`). `UserStatus` = celui du socle. Toutes les entités étendent
   `Audit`. Enums métier en MAJUSCULES **dans leur module** (`shared/` reste neutre). Erreurs `3xxx`.
 - **Modules du socle** : `content/`, `chat/`, `notifications/` **gardés** (pas des démos jetables
-  pour Amisache). `chat/` adapté (enums d'acteurs) **sans casser son polymorphisme**.
-- **Conséquences** : `AMISACHE.md` créé pour porter tout ce delta.
+  pour AmissaChe). `chat/` adapté (enums d'acteurs) **sans casser son polymorphisme**.
+- **Conséquences** : `AMISSACHE.md` créé pour porter tout ce delta.
 
 ### 2026-08-30 — Découpage en modules par force de liens
-- **Décision** : 6 modules Amisache — `address/`, `type/`, `church/`, `liturgy/`, `payment/`,
+- **Décision** : 6 modules AmissaChe — `address/`, `type/`, `church/`, `liturgy/`, `payment/`,
   `community/`. `Donation` placé dans `liturgy/` (geste du fidèle). `Address` = value object
   embarqué, module renommé `Location` → `address/`.
 - **Pourquoi** : composition forte → même module ; référence lâche → frontière. Dépendances

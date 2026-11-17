@@ -1,4 +1,4 @@
-// Doit rester synchronisé avec amisache-backend : src/dashboard/dashboard.service.ts
+// Doit rester synchronisé avec amissache-backend : src/dashboard/dashboard.service.ts
 
 /** GET /dashboard/stats — plateforme (admin/engineer) ou une église (?churchId=). */
 export interface DashboardStats {

@@ -150,7 +150,7 @@
   font-size: .7rem;
   font-weight: 600;
 
-  // Rôles Amisache : user / admin / engineer / manager / clergy (cf. AMISACHE.md §5)
+  // Rôles AmissaChe : user / admin / engineer / manager / clergy (cf. AMISSACHE.md §5)
   &.role-admin    { background: rgba(22,35,92,.12);   color: var(--color-primary); }
   &.role-clergy   { background: rgba(94,159,214,.16); color: #274F7D; }
   &.role-manager  { background: rgba(212,175,55,.20); color: #856A16; }

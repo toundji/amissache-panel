@@ -1,4 +1,4 @@
-// Doit rester synchronisé avec amisache-backend :
+// Doit rester synchronisé avec amissache-backend :
 // src/liturgy/liturgy.enum.ts (ScheduleFrequency, LiturgicalSeason)
 // src/liturgy/entities/schedule.entity.ts
 // src/liturgy/dto/schedule.dto.ts

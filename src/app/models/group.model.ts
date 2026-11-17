@@ -1,4 +1,4 @@
-// Doit rester synchronisé avec amisache-backend :
+// Doit rester synchronisé avec amissache-backend :
 // src/community/community.enum.ts (GroupType)
 // src/community/entities/group.entity.ts + group-member.entity.ts
 // src/community/dto/group.dto.ts + group-member.dto.ts

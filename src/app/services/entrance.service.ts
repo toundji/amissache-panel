@@ -5,7 +5,7 @@ import { Observable, tap } from 'rxjs';
 import { CreateEntranceDto, Entrance, ListEntranceQuery, UpdateEntranceDto } from '../models/entrance.model';
 
 /**
- * Miroir de EntranceController (amisache-backend src/church/controllers/entrance.controller.ts).
+ * Miroir de EntranceController (amissache-backend src/church/controllers/entrance.controller.ts).
  * GET /entrances : `churchId` optionnel (absent → toutes). Non paginé serveur →
  * pagination + filtres côté CLIENT. Chaque entrée porte `church`.
  */

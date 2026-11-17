@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "AmisaPanel",
-    "public": "dist/amisache-panel/browser",
+    "public": "dist/amissache-panel/browser",
     "ignore": [
       "firebase.json",
       "**/.*",

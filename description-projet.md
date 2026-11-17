@@ -1,4 +1,4 @@
-# Description du projet — Amisache
+# Description du projet — AmissaChe
 
 > Ce document donne le **sens** du projet : de quoi il s'agit, pour qui, où il en est, et ce que le logo doit incarner. À lire avec la charte graphique et le cahier des charges.
 
@@ -6,7 +6,7 @@
 
 ## En une phrase
 
-**Amisache** (qui signifie « mon église ») est une plateforme numérique unique qui rassemble **toutes les églises catholiques du Bénin** — pour trouver sa paroisse, connaître les horaires des messes, demander une intention de messe, faire un don — conçue dès le départ pour **s'étendre à d'autres pays**.
+**AmissaChe** (qui signifie « mon église ») est une plateforme numérique unique qui rassemble **toutes les églises catholiques du Bénin** — pour trouver sa paroisse, connaître les horaires des messes, demander une intention de messe, faire un don — conçue dès le départ pour **s'étendre à d'autres pays**.
 
 ---
 

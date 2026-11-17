@@ -12,7 +12,7 @@ import {
 } from '../models/type.model';
 
 /**
- * Miroir de TypeController (amisache-backend src/type/controllers/type.controller.ts).
+ * Miroir de TypeController (amissache-backend src/type/controllers/type.controller.ts).
  * Le panel utilise GET /types/admin (paginé côté serveur, y compris types inactifs)
  * + le CRUD admin. La route publique GET /types (types actifs par scope) sert les
  * sélecteurs des modules métier, pas le back-office.

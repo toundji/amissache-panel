@@ -1,4 +1,4 @@
-// Doit rester synchronisé avec amisache-backend :
+// Doit rester synchronisé avec amissache-backend :
 // src/community/community.enum.ts (MediaKind, MediaProvider)
 // src/community/entities/media.entity.ts
 // src/community/dto/media.dto.ts

@@ -5,7 +5,7 @@ import { Observable, tap } from 'rxjs';
 import { ListPaymentQuery, Payment, PaymentStatus } from '../models/payment.model';
 
 /**
- * Miroir de PaymentController (amisache-backend src/payment/controllers/payment.controller.ts).
+ * Miroir de PaymentController (amissache-backend src/payment/controllers/payment.controller.ts).
  * Listes complètes non paginées : `GET /payments/admin` (tout) et
  * `GET /payments/church/:churchId` (une paroisse, via paymentMethod.churchId).
  * Relations : chaque paiement porte son `paymentMethod`. La confirmation /

@@ -5,7 +5,7 @@ import { Observable, tap } from 'rxjs';
 import { GroupMember } from '../models/group.model';
 
 /**
- * Miroir de GroupMemberController (amisache-backend src/community/controllers/group-member.controller.ts).
+ * Miroir de GroupMemberController (amissache-backend src/community/controllers/group-member.controller.ts).
  * Le panel n'utilise que GET /group-members/admin?groupId (membres d'un
  * groupe, avec `user`) et DELETE /group-members/:id. Rejoindre un groupe
  * est du self-service fidèle, hors back-office.

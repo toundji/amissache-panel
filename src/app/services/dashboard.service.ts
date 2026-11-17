@@ -15,7 +15,7 @@ interface Paginated<T> {
 }
 
 /**
- * Miroir de DashboardController (amisache-backend src/dashboard/dashboard.controller.ts)
+ * Miroir de DashboardController (amissache-backend src/dashboard/dashboard.controller.ts)
  * + lectures « tableau de bord » sur les autres routes admin.
  *
  * Ces lectures passent volontairement par `HttpClient` directement, **sans**

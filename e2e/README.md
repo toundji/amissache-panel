@@ -1,4 +1,4 @@
-# Tests end-to-end — panel Amisache
+# Tests end-to-end — panel AmissaChe
 
 Playwright (`@playwright/test`), navigateur Chromium.
 

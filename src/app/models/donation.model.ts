@@ -1,4 +1,4 @@
-// Doit rester synchronisé avec amisache-backend :
+// Doit rester synchronisé avec amissache-backend :
 // src/liturgy/entities/donation.entity.ts
 // src/liturgy/dto/donation.dto.ts
 // src/liturgy/controllers/donation.controller.ts

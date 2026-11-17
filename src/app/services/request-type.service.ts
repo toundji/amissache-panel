@@ -12,7 +12,7 @@ import {
 } from '../models/request-type.model';
 
 /**
- * Miroir de RequestTypeController (amisache-backend
+ * Miroir de RequestTypeController (amissache-backend
  * src/liturgy/controllers/request-type.controller.ts). Table dédiée aux
  * types de demande (intention de messe / sacrement), sortie de la table
  * mutualisée `types` le 2026-09-26 — voir TypeService pour les autres scopes

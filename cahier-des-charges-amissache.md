@@ -1,4 +1,4 @@
-# Cahier des charges — Amisache
+# Cahier des charges — AmissaChe
 
 **Plateforme SaaS d'agrégation des paroisses catholiques**
 *Version de travail — issue de la modélisation du domaine*
@@ -11,11 +11,11 @@
 
 L'Église catholique du Bénin ne dispose pas d'une plateforme numérique unifiée permettant aux fidèles de découvrir les paroisses, consulter les horaires de messe, demander des intentions et des sacrements, soutenir financièrement leur communauté et suivre sa vie (annonces, médias). Chaque paroisse qui souhaite une présence en ligne doit aujourd'hui la construire isolément, sans cohérence ni mutualisation.
 
-**Amisache** (« mon église ») répond à ce besoin : une plateforme mutualisée qui agrège l'ensemble des entités de l'Église catholique, tout en donnant à chacune le sentiment d'un espace **qui lui appartient**.
+**AmissaChe** (« mon église ») répond à ce besoin : une plateforme mutualisée qui agrège l'ensemble des entités de l'Église catholique, tout en donnant à chacune le sentiment d'un espace **qui lui appartient**.
 
 ### 1.2 Sens du nom
 
-« Amisache » signifie « mon église ». Le possessif est central : l'adhésion des paroisses dépend de leur capacité à se sentir propriétaires de leur page (nom, photo, logo, couleurs, mot du responsable), même au sein d'une infrastructure partagée.
+« AmissaChe » signifie « mon église ». Le possessif est central : l'adhésion des paroisses dépend de leur capacité à se sentir propriétaires de leur page (nom, photo, logo, couleurs, mot du responsable), même au sein d'une infrastructure partagée.
 
 ### 1.3 Objectifs
 
@@ -80,7 +80,7 @@ Le modèle distingue **deux axes de rôle**, indépendants :
 | Valeur | Description |
 |---|---|
 | `USER` | Compte standard (fidèle par défaut) |
-| `ADMIN` | Exploitant de la plateforme Amisache |
+| `ADMIN` | Exploitant de la plateforme AmissaChe |
 
 **Fonction ecclésiale (par entité)** — portée par l'affectation `ClergyMember.role` (`EcclesialRole`) :
 

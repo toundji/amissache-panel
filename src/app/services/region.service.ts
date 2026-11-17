@@ -5,7 +5,7 @@ import { Observable, tap } from 'rxjs';
 import { CreateRegionDto, ListRegionQuery, Region, UpdateRegionDto } from '../models/region.model';
 
 /**
- * Miroir de RegionController (amisache-backend src/address/controllers/region.controller.ts).
+ * Miroir de RegionController (amissache-backend src/address/controllers/region.controller.ts).
  * GET /regions n'est pas paginé côté serveur ; `countryId` est optionnel
  * (absent → toutes les régions). Pagination + filtre pays gérés côté CLIENT.
  */
