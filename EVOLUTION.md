@@ -29,6 +29,13 @@ Prochaines étapes ouvertes :
 
 ## Historique des décisions
 
+### 2026-11-17 — Firebase : projet `amissache` (remplace `amissache-209bf`)
+- **Demandé** : « pour avoir amissache au lieu de amissache-209bf » (l'identifiant d'un projet ne se renomme pas).
+  Nouveau projet `amissache` (compte amissache@gmail.com) avec une app Web et une app Android `com.amissache.app`
+  (SHA-1 de debug). `environments/firebase.ts` et `.firebaserc` y pointent ; `ng build` passe. Pas de Google Analytics dans ce projet (`measurementId` retiré, inutilisé).
+- **Reste** : activer Google, domaines autorisés, clé de service ; puis clé sur le serveur et redéploiement (sur
+  accord). Ensuite supprimer `amissache-209bf`. Non déployé.
+
 ### 2026-11-17 — Nouveau projet Firebase `amissache-209bf` (compte amissache@gmail.com)
 - **Demandé** : projet Firebase recréé sous amissache@gmail.com. Créé par l'outil Firebase : une app Web
   « AmissaChe Web » (partagée par l'app, le portail et le panel) et une app Android `com.amissache.app` (SHA-1 de
